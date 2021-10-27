@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<title>Physics Quiz</title>
+	</head>
+<body>
+
+	<h2>Physics Quiz</h2>
+	<p><b>Calculate to the nearest 2 decimal points (if possible).</b></p>
+	<br>
+	<p id="number1"></p>
+	<p id="number2"></p>
+	<p id="number3"></p>
+	<p id="number4"></p>
+	<p id="answer"></p>
+	<br>
+	<input id="user_input" placeholder="Answer (no units)">
+	
+	<button type="button" onclick="myFunction()">Submit</button>
+
+	<p id="demo" class="answer"></p>
+	<p id="demo2" class="answer2"></p>
+
+	<script>
+
+			let topics = [
+			{
+					"topic": "Velocity",        
+					"unit_number": 2,            	
+					"unit1": "m",              
+					"unit2": "s",               
+					"method": "division"        
+			},
+			{
+					"topic": "Acceleration",
+					"unit_number": 2,
+					"unit1": "m/s",
+					"unit2": "s",
+					"method": "division"
+			},
+			{
+					"topic": "Pressure",
+					"unit_number": 2,
+					"unit1": "N",
+					"unit2": "m²",
+					"method": "division"
+			},
+			{
+					"topic": "Power",
+					"unit_number": 2,
+					"unit1": "J",
+					"unit2": "s",
+					"method": "division"
+			},
+			{
+					"topic": "Density",
+					"unit_number": 2,
+					"unit1": "kg",
+					"unit2": "cm³",
+					"method": "division"
+			},
+			{
+					"topic": "Momentum",
+					"unit_number": 2,
+					"unit1": "kg",
+					"unit2": "m/s",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Weight",
+					"unit_number": 2,
+					"unit1": "kg",
+					"unit2": "N/kg (always 10 N/kg on Earth)",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Hooke's Law",
+					"unit_number": 2,
+					"unit1": "N/m",
+					"unit2": "m",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Latent Heat",
+					"unit_number": 2,
+					"unit1": "kg",
+					"unit2": "J/kg",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Work",
+					"unit_number": 2,
+					"unit1": "N",
+					"unit2": "m (displacement)",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Moment",
+					"unit_number": 2,
+					"unit1": "N",
+					"unit2": "m",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Kinetic Energy",
+					"unit_number": 2,
+					"unit1": "kg",
+					"unit2": "m/s",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Force",
+					"unit_number": 2,
+					"unit1": "kg",
+					"unit2": "m/s",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Impulse",
+					"unit_number": 2,
+					"unit1": "N",
+					"unit2": "s",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Gravitational Potential Energy",
+					"unit_number": 3,
+					"unit1": "kg",
+					"unit2": "N/kg",
+					"unit3": "m",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Specific Heat Capacity",
+					"unit_number": 3,
+					"unit1": "kg",
+					"unit2": "N/kg",
+					"unit3": "°C",
+					"method": "multiplication"
+			},
+			{
+					"topic": "Pressure",
+					"unit_number": 3,
+					"unit1": "kg",
+					"unit2": "J/kg",
+					"unit3": "m",
+					"method": "multiplication"
+			}
+	]
+
+	let number_of_topics = topics.length
+	let random_number = Math.floor(Math.random() * number_of_topics)
+	let topic = (topics[random_number]["topic"])
+	let first_number = Math.floor(Math.random() * 100)              
+	let second_number = Math.floor(Math.random() * 100) 
+	let third_number = Math.floor(Math.random() * 100) 
+	let unit1 = (topics[random_number]["unit1"])
+	let unit2 = (topics[random_number]["unit2"])
+	let unit3 = (topics[random_number]["unit3"])
+	let unit_number = topics[random_number]["unit_number"];
+	let method = topics[random_number]["method"];
+	var user_input = document.getElementById("user_input");
+	
+
+
+	function reload_page() {
+		location.reload();
+	}
+
+	function myFunction() {
+		var x, text;
+		
+		x = document.getElementById("user_input").value;
+
+		if (method == "division")
+			if (unit_number == 2)
+				var final_answer = first_number / second_number;
+				var final_answer2 = Math.round(final_answer * 100) / 100
+			if (unit_number == 3)
+					var final_answer = first_number * second_number;
+					var final_answer2 = Math.round(final_answer * 100) / 100
+
+		if (method == "multiplication")
+			if (unit_number == 2)
+					var final_answer = first_number * second_number;
+					var final_answer2 = Math.round(final_answer * 100) / 100
+
+			if (unit_number == 3)
+				var final_answer = first_number * second_number * third_number;
+				var final_answer2 = Math.round(final_answer * 100) / 100
+
+			if (topic == "Kinetic Energy")
+				var final_answer = 0.5 * first_number * second_number ** 2;
+				var final_answer2 = Math.round(final_answer * 100) / 100
+
+
+
+		if (x == final_answer2) {
+			texttext = "Correct";
+			text = texttext.fontcolor("#02c937");
+		} else {
+			texttext = "Incorrect";
+			text = texttext.fontcolor("#eb0909");
+		}
+		document.getElementById("demo").innerHTML = text;
+		}
+
+		x = document.getElementById("user_input").value;
+
+		document.getElementById("number1").innerHTML = "Topic: " + topic;
+		document.getElementById("number2").innerHTML = first_number + " " + unit1;
+		document.getElementById("number3").innerHTML = second_number + " " + unit2;
+		if (unit_number == 3) {
+			document.getElementById("number4").innerHTML = third_number + " " + unit3;
+		}
+		</script>
+		<br>
+		<br>
+	
+	<div>
+		<button onclick="reload_page()">New Question</button>
+	<div>
+		
+</body>
+</html> 
+

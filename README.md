@@ -3,4 +3,6 @@ A simple quiz about physics equations. It will randomly generate a equations and
 
 **Live demo** [here](https://Physics-Quiz-Mixed.gaborscholler.repl.co) _(be aware - link will open on this tab)_
 
-It's worth noting that there's quite a chunk of JavaScript in `index.html`, so it would perhaps be a good idea to move it over to a seperate `.js` file.  
+It's worth noting that there's quite a chunk of JavaScript in `index.html`, so it would perhaps be a good idea to move it over to a seperate `.js` file. 
+
+Furthermore, this quiz is aimed at IGCSE students for their exam revision.
